@@ -61,7 +61,7 @@ namespace fiveletterwords
                     grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
                     grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
                     StackpanelFileList.Children.Add(grid);
-                    RadioButton radioButton = new RadioButton() { Name = "r" + n, GroupName = "FileGroup", VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, Margin = new Thickness(2), IsChecked = false };
+                    RadioButton radioButton = new RadioButton() { Name = "t"+n, GroupName = "FileGroup", VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, Margin = new Thickness(2), IsChecked = false };
                     //radioButton.Checked += new System.EventHandler(this.Checked_Click);
                     if (item == paths.Last())
                     {
@@ -93,7 +93,7 @@ namespace fiveletterwords
 
         private void Checked_Click(object? sender, RoutedEventArgs e)
         {
-            _currentPath = "t"+this.Name.Substring(1, this.Name.Length - 1);
+            _currentPath = this.Name;
         }
 
         // all logic for the letter configuration 
@@ -166,12 +166,12 @@ namespace fiveletterwords
         {
             try
             {
-                //TextBlock myTextBlock = (TextBlock)this.FindName(_currentPath);
-                if (true/*myTextBlock != null*/)
+                if (true)
                 {
                     fileSize = 0;
                     wordCombos.Clear();
                     seconds = 0;
+                    int kk = 0;
                     Stopwatch stopwatch = new();
                     stopwatch.Start();
                     try
@@ -194,6 +194,8 @@ namespace fiveletterwords
                             long[] result = new long[NumWordsValue];
                             result[0] = numbers[i];
                             AndingLoop(ShortArray(numbers, i), numbers[i], lines, 0, result, numbers);
+                            kk++;
+                            pbStatus.Value = (100 / fileSize) * kk;
                         });
                     }
                     catch (Exception)

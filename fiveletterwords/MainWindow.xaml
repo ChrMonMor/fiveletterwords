@@ -82,13 +82,15 @@
             <TextBlock Grid.Column="2" Grid.Row="1" Text="Number of Words" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
             <CheckBox Grid.Column="0" Grid.Row="2" x:Name="NoAnagrams" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock Grid.Column="2" Grid.Row="2" Text="If you don't want anagrams removed for the list of results, uncheck this marker (Warning: Unchecking this might result in longer processing time)" TextWrapping="WrapWithOverflow" />
-            <Button Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="4" Content="Run Filter" Click="Button_Click">
+            <Button Grid.Column="0"  Grid.Row="4" Content="Run Filter" Click="Button_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="4"/>
                     </Style>
                 </Button.Resources>
             </Button>
+            <ProgressBar Grid.Column="2" Grid.Row="4" Minimum="0" Maximum="100" x:Name="pbStatus" >
+            </ProgressBar>
         </Grid>
     </Grid>
 </Window>
