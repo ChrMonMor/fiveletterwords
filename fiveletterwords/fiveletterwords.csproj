@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="resources\delete_off.png" />
+    <None Remove="resources\delete_on.png" />
+    <None Remove="resources\downarrow.png" />
+    <None Remove="resources\plus_off.png" />
+    <None Remove="resources\plus_on.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\delete_off.png" />
+    <Resource Include="resources\delete_on.png" />
+    <Resource Include="resources\downarrow.png" />
+    <Resource Include="resources\plus_off.png" />
+    <Resource Include="resources\plus_on.png" />
+  </ItemGroup>
+
+</Project>

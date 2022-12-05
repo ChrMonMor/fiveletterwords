@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiveletterwords", "fiveletterwords\fiveletterwords.csproj", "{0A3D324B-77A1-48AB-AF82-8CC3544D5707}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A3D324B-77A1-48AB-AF82-8CC3544D5707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3D324B-77A1-48AB-AF82-8CC3544D5707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3D324B-77A1-48AB-AF82-8CC3544D5707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3D324B-77A1-48AB-AF82-8CC3544D5707}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61E4B017-DA93-4C36-9602-43157A00804C}
+	EndGlobalSection
+EndGlobal

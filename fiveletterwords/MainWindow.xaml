@@ -1,0 +1,94 @@
+﻿<Window x:Class="fiveletterwords.MainWindow"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:fiveletterwords"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="8" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="8" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="StackpanelFileList" Margin="0,0,4,0" Orientation="Vertical" >
+                <Separator  Margin="0,2,0,0" />
+                <StackPanel Orientation="Horizontal">
+                    <Image x:Name="SelectAddPlus" Height="13" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,4,2,4" MouseLeftButtonDown="SelectAddPlus_MouseLeftButtonDown">
+                        <Image.Style>
+                            <Style>
+                                <Setter Property="Image.Source" Value="\resources\plus_off.png" />
+                                <Style.Triggers>
+                                    <Trigger  Property="Image.IsMouseOver" Value="True">
+                                        <Setter Property="Image.Source" Value="\resources\plus_on.png" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                    <Separator  />
+                </StackPanel>
+            </StackPanel>
+            <Image Grid.Row="1" x:Name="SelectDelete" Height="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,4,2,4" MouseLeftButtonDown="SelectAddPlus_MouseLeftButtonDown">
+                <Image.Style>
+                    <Style>
+                        <Setter Property="Image.Source" Value="\resources\delete_off.png" />
+                        <Style.Triggers>
+                            <Trigger  Property="Image.IsMouseOver" Value="True">
+                                <Setter Property="Image.Source" Value="\resources\delete_on.png" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+        </Grid>
+        <Separator Grid.Column="2" Grid.Row="1"  />
+
+
+        <Grid Grid.Column="3" Grid.Row="1" x:Name="RightSideGrid" Margin="4,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Column="0" Grid.Row="0" x:Name="txtNumLetter" x:FieldModifier="private" Text="5" TextChanged="txtNum_TextLetterChanged" Margin="3,2,13,3" />
+            <Button Grid.Column="0" Grid.Row="0" x:Name="cmdNumUpLetter" x:FieldModifier="private" FontSize="10" Padding="0,-4,0,0" Content="▲" Width="10" Click="cmdUpNumLetter_Click" Margin="33,2,1,13" />
+            <Button Grid.Column="0" Grid.Row="0" x:Name="cmdDownNumLetter" x:FieldModifier="private" FontSize="10" Padding="0,-4,0,0" Content="▼" Width="10" Click="cmdDownNumLetter_Click" Margin="33,12,1,3" />
+            <TextBlock Grid.Column="2" Grid.Row="0" Text="Number of Letters" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+            <TextBox Grid.Column="0" Grid.Row="1" x:Name="txtNumWords" x:FieldModifier="private" Text="5" TextChanged="txtNum_TextWordsChanged" Margin="3,2,13,3" />
+            <Button Grid.Column="0" Grid.Row="1" x:Name="cmdNumUpWords" x:FieldModifier="private" FontSize="10" Padding="0,-4,0,0" Content="▲" Width="10" Click="cmdUpNumWords_Click" Margin="33,2,1,13" />
+            <Button Grid.Column="0" Grid.Row="1" x:Name="cmdDownNumWords" x:FieldModifier="private" FontSize="10" Padding="0,-4,0,0" Content="▼" Width="10" Click="cmdDownNumWords_Click" Margin="33,12,1,3" />
+            <TextBlock Grid.Column="2" Grid.Row="1" Text="Number of Words" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+            <CheckBox Grid.Column="0" Grid.Row="2" x:Name="NoAnagrams" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="2" Grid.Row="2" Text="If you don't want anagrams removed for the list of results, uncheck this marker (Warning: Unchecking this might result in longer processing time)" TextWrapping="WrapWithOverflow" />
+            <Button Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="4" Content="Run Filter" Click="Button_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
