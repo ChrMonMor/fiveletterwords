@@ -10,12 +10,14 @@ using System.Windows.Media;
 
 namespace fiveletterwords
 {
+    // Hele klassen bliver ikke brugt
     public class FiveLetterLogic
     {
         static List<string> wordCombos = new List<string>();
         double seconds = 0;
         int fileSize = 0;
 
+        // Bliver ikke brugt
         public (List<string> wordCombos, double seconds, int fileSize) WordLogic(string path, int wordLenght, int nWords, bool noAnagrams)
         {
             fileSize = 0;
@@ -55,6 +57,8 @@ namespace fiveletterwords
             }
             return (wordCombos, stopwatch.Elapsed.TotalSeconds, fileSize);
         }
+
+        // Bliver ikke brugt
         static long[] WordToNumber(string[] arr)
         {
             List<long> longs = new List<long>();
@@ -69,6 +73,8 @@ namespace fiveletterwords
             }
             return longs.ToArray();
         }
+
+        // Bliver ikke brugt
         static (string[], long[]) RemoveAnagrams(string[] arr)
         {
             List<long> longs = new();
@@ -89,6 +95,8 @@ namespace fiveletterwords
             }
             return (newArr.ToArray(), longs.ToArray());
         }
+
+        // Bliver ikke brugt
         static void AndingLoop(long[] arr, long BitSum, string[] Lines, int SuccessCount, long[] Result, long[] Numbers)
         {
             try
@@ -117,6 +125,7 @@ namespace fiveletterwords
             }
         }
 
+        // Bliver ikke brugt
         //Shorty of Array, remov old used bits n' bobs
         static long[] ShortArray(long[] arr, int StartPos)
         {

@@ -21,6 +21,9 @@ using System.IO;
 
 namespace fiveletterwords
 {
+    // Forvirende at have alt i en stor fil
+    // Kunne være rart med opdelte klasser
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -37,6 +40,7 @@ namespace fiveletterwords
             txtNumWords.Text = _numWordsValue.ToString();
         }
 
+        // Virker fint
         private void SelectAddPlus_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             try
@@ -51,6 +55,7 @@ namespace fiveletterwords
                     foreach (string filename in openFileDialog.FileNames)
                         paths.Add(filename);
                 }
+                // Giver god mening at tilføje grid elementer her
                 foreach (var item in paths)
                 {
                     int n = StackpanelFileList.Children.Count;
@@ -96,6 +101,7 @@ namespace fiveletterwords
             _currentPath = this.Name;
         }
 
+        // Kunne have gjort det uden at lave 2 metoder, for at gøre det samme
         // all logic for the letter configuration 
         private int _numlettersValue = 5;
         public int NumlettersValue
@@ -107,15 +113,18 @@ namespace fiveletterwords
                 txtNumLetter.Text = value.ToString();
             }
         }
+
         private void cmdUpNumLetter_Click(object sender, RoutedEventArgs e)
         {
             if (NumWordsValue * (NumlettersValue+1) < 27)
                 NumlettersValue++;
         }
+
         private void cmdDownNumLetter_Click(object sender, RoutedEventArgs e)
         {
             NumlettersValue--;
         }
+
         private void txtNum_TextLetterChanged(object sender, TextChangedEventArgs e)
         {
             if (txtNumLetter == null)
@@ -126,7 +135,6 @@ namespace fiveletterwords
             if (!int.TryParse(txtNumLetter.Text, out _numlettersValue))
                 txtNumLetter.Text = _numlettersValue.ToString();
         }
-
 
         // All the logic for the word length configurations 
         private int _numWordsValue = 5;
@@ -139,6 +147,7 @@ namespace fiveletterwords
                 txtNumWords.Text = value.ToString();
             }
         }
+
         private void cmdUpNumWords_Click(object sender, RoutedEventArgs e)
         {
             if((NumWordsValue+1) * NumlettersValue < 27)
@@ -148,6 +157,7 @@ namespace fiveletterwords
         {
             NumWordsValue--;
         }
+
         private void txtNum_TextWordsChanged(object sender, TextChangedEventArgs e)
         {
             if (txtNumWords == null)
@@ -206,8 +216,6 @@ namespace fiveletterwords
                     {
                         stopwatch.Stop();
                     }
-
-
                 }
                 Popup popup = new Popup() { IsOpen = true };
             }
@@ -217,6 +225,7 @@ namespace fiveletterwords
                 throw;
             }
         }
+
         static long[] WordToNumber(string[] arr)
         {
             List<long> longs = new List<long>();
@@ -231,6 +240,7 @@ namespace fiveletterwords
             }
             return longs.ToArray();
         }
+
         static (string[], long[]) RemoveAnagrams(string[] arr)
         {
             List<long> longs = new();
@@ -251,6 +261,7 @@ namespace fiveletterwords
             }
             return (newArr.ToArray(), longs.ToArray());
         }
+
         static void AndingLoop(long[] arr, long BitSum, string[] Lines, int SuccessCount, long[] Result, long[] Numbers)
         {
             try
